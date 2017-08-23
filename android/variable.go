@@ -20,6 +20,8 @@ import (
 	"runtime"
 	"strings"
 
+	"reloaded/soong/android"
+
 	"github.com/google/blueprint/proptools"
 )
 
@@ -117,6 +119,9 @@ type variableProperties struct {
 			Static_libs  []string
 			Srcs         []string
 		}
+
+		// include Reloaded variables
+		Reloaded android.Product_variables
 
 		Flatten_apex struct {
 			Enabled *bool
@@ -391,6 +396,9 @@ type productVariables struct {
 	BoardUsesRecoveryAsBoot *bool `json:",omitempty"`
 
 	PrebuiltHiddenApiDir *string `json:",omitempty"`
+
+	// include Reloaded variables
+	Reloaded android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
